@@ -1,0 +1,40 @@
+1. crear un entorno con las librerias necesarias, unicamente para cpu
+Para eso se requiere primero crear el entorno, activarlo y con el entorno activo instalar torch para auido e imagenes
+
+esto lo deben hacer desde la consola de anaconda
+
+conda create -n envtorchcpu python=3.7 Ipython matplotlib
+conda activate envtorchcpu
+
+pip install soundfile
+pip install h5py
+pip install librosa
+pip install pyaudio
+pip install chardet
+pip install scikit-learn
+pip install pyttsx3
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 cpuonly -c pytorch
+pip install speechbrain
+
+#para  los rostros
+
+pip install opencv-python --no es necesario si no trabaja con imagenes
+pip install facenet-pytorch -- no es necesario si no se trabaja con imagenes
+
+
+2. ejecutar el script prueba_sv.py para evaluar si da [1,1,1,0,0,0]
+
+
+3. para mezlar ruido de salon o ruido gausiano se puede ejecutar mix_audio.py
+
+el archivo original esta en la carpeta sample_audio
+en el script pueden ver una variable que se llama SNR que permite subir o bajar el nivel de contaminacion
+SNR baja -> afecta mucho la calidad   por ejemplo 3 db
+SNR alta -> no la afecta tanto        por ejemplo 20 db
+
+el resultado lo guarda en noisy_add, pueden escuchar y luego cambiar el audio que se carga 
+
+4. el archivo reverb_audio usa pytorch para agregar reverberacion al audio
+el resultado tambien se guarda en noisy_add
+
+
